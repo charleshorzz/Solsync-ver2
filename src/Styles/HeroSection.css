@@ -1,0 +1,52 @@
+.hero {
+    color: white;
+    text-align: center;
+    background-color: #5C2E91; /* Adjust the color to match the design */
+    padding: 100px 50px; /* Increased padding to give more space */
+    background-size: cover; /* Ensure the background covers the entire section */
+    background-repeat: no-repeat; /* The background should not repeat */
+  }
+  
+  .hero h1 {
+    font-size: 4em; /* Adjust size to better match the design if needed */
+  }
+  
+  .hero p {
+    font-size: 1.2em; /* Slightly larger paragraph font */
+    max-width: 600px; /* Maximum width for better readability */
+    margin-left: auto; /* Centering the paragraph */
+    margin-right: auto;
+    margin-top: 20px;
+  }
+  
+  .search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px; /* Increase spacing to match the design */
+  }
+  
+  .search-box input {
+    padding: 15px;
+    border-radius: 30px; /* More pronounced rounded corners for the input */
+    border: 1px solid #FFFFFF; /* White border for the input */
+    width: 35%; /* Use percentage for responsiveness */
+    max-width: 400px; /* Maximum width */
+  }
+  
+  .search-box button {
+    padding: 15px 30px;
+    border: none;
+    background-color: #FF5F5F;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold; /* Make the text in the button bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .search-box button:hover {
+    background-color: #E04E4E; /* Darker shade for hover effect */
+  }
+  
