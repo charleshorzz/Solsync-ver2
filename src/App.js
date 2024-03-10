@@ -6,7 +6,7 @@ function App() {
   return (
     <React.Fragment>
       <Navbar />
-      <HeroSection />
+      {/* <HeroSection /> */}
     </React.Fragment>
   );
 }

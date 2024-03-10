@@ -52,36 +52,7 @@ const Forum = () => {
           <div className="CardShadow">
             <SocialCard />
           </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
-          <div className="CardShadow">
-            <SocialCard />
-          </div>
+          
           
           
         </div>
