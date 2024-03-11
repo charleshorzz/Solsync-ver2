@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar.jsx";
+import { Outlet } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <React.Fragment>
-      <Navbar></Navbar>
-    </React.Fragment>
+    <>
+      <Navbar />
+      <Outlet />
+    </>
   );
-}
+};
 
 export default App;
