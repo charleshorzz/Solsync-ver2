@@ -10,6 +10,9 @@ import App from "./App";
 import "./index.css";
 import CourseScreen from "./screens/CourseScreen.jsx";
 import CourseDetailsScreen from "./screens/CourseDetailsScreen.jsx";
+import Forum from './Screen/forum';
+import Sidebar from './Components/ForumSideBar';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(

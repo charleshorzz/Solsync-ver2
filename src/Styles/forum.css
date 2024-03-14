@@ -1,0 +1,119 @@
+body {
+    background-color: #505d58; /* Set your desired color */
+}
+
+
+.Bar{
+    /* position: -webkit-sticky; */
+    z-index: 1;
+    position: sticky;
+    top:0px;
+    
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 0 20px;
+    background-color: #f5f5f5;
+    height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="search"]{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    border-radius: 3.5px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: none;
+    color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    border-color: inherit;
+    transition: background-color 0.65s ease;
+}
+
+button:hover{
+    background-color: #e3e3e0;
+}
+
+.RightBar{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 20px;
+}
+
+
+.Sidebar{
+    z-index: -2;
+    position: fixed; /* Fixes the sidebar to the viewport */
+    top: 60px; /* Aligns the sidebar to the top */
+    left: 0; /* Aligns the sidebar to the left side of the viewport */
+    height: 100vh; /* Makes the sidebar span the full viewport height */
+    width: 300px; /* Sets the width of the sidebar */
+    background-color: #f5f5f5; /* Sets the background color */
+    padding: 20px; /* Adds padding inside the sidebar */
+    box-shadow: 2px 11px 9px 2px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 2px 11px 9px 2px rgba(0,0,0,0.45);
+    -moz-box-shadow: 2px 11px 9px 2px rgba(0,0,0,0.45);
+    display: flex; /* Keeps the flex display */
+    flex-direction: column; /* Organizes children elements vertically */
+}
+
+.MessageSidebar{
+    z-index: -2;
+    position: fixed; /* Fixes the sidebar to the viewport */
+    top: 60px; /* Aligns the sidebar to the top */
+    right: 0; /* Aligns the sidebar to the right side of the viewport */
+    height: 100vh; /* Makes the sidebar span the full viewport height */
+    width: 300px; /* Sets the width of the sidebar */
+    background-color: #f5f5f5; /* Sets the background color */
+    padding: 20px; /* Adds padding inside the sidebar */
+    box-shadow: -2px 11px 9px 2px rgba(0,0,0,0.45);
+    -webkit-box-shadow: -2px 11px 9px 2px rgba(0,0,0,0.45);
+    -moz-box-shadow: -2px 11px 9px 2px rgba(0,0,0,0.45);
+    display: flex; /* Keeps the flex display */
+    flex-direction: column; /* Organizes children elements vertically */
+}
+
+
+.forumContainer{
+    padding-top: 50px;
+    top:800px;
+    display: flex;
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    height: 100vh; /* Full viewport height to allow vertical centering */
+}
+
+.forumContent{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: auto; /* Centers the content horizontally */
+}
+
+.CardShadow{
+    width:350px;
+    height:390px;
+    background-color: #CACBC1;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* @media only screen and (max-width: 1024px) */
