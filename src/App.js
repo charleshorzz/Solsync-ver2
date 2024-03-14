@@ -1,14 +1,15 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar.jsx";
+import { Outlet } from "react-router-dom";
 import HeroSection from "./Components/HeroSection";
 
-function App() {
+const App = () => {
   return (
-    <React.Fragment>
+    <>
       <Navbar />
-      {/* <HeroSection /> */}
-    </React.Fragment>
+      <Outlet />
+    </>
   );
-}
+};
 
 export default App;
