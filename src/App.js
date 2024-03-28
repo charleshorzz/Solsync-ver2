@@ -1,13 +1,15 @@
 import React from "react";
 import Navbar from "./Components/Navbar.jsx";
 import { Outlet } from "react-router-dom";
-import HeroSection from "./Components/HeroSection";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <>
       <Navbar />
       <Outlet />
+      <ToastContainer />
     </>
   );
 };

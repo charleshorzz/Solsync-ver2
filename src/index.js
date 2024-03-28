@@ -8,18 +8,13 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import "./index.css";
-import CourseScreen from "./screens/CourseScreen.jsx";
-import CourseDetailsScreen from "./screens/CourseDetailsScreen.jsx";
-import Forum from './Screen/forum';
-import Sidebar from './Components/ForumSideBar';
-
+import HomeScreen from "./screens/HomeScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="" element={<App />}>
-        <Route path="/" index={true} element={<CourseScreen />} />
-        <Route path="/course/:id" element={<CourseDetailsScreen />} />
+        <Route path="/" index={true} element={<HomeScreen />} />
       </Route>
     </Route>
   )

@@ -13,7 +13,7 @@ const Navbar = () => {
     <header>
       <h3>Logo</h3>
       <nav ref={navRef}>
-        <a href="/#">Home</a>
+        <a href="/">Home</a>
         <a href="/#">Course</a>
         <a href="/#">Forum</a>
         <a href="/#">Dashboard</a>
