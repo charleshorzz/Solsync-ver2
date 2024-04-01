@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../Components/searchBar";
 import InfoCard from "../Components/infoCard";
 import Footer from "../Components/footer";
+import UserPage from "../Components/userPage";
 
 const handleSearch = (searchTerm) => {
   console.log("Searching for:", searchTerm);
@@ -9,13 +10,10 @@ const handleSearch = (searchTerm) => {
 
 const HomeScreen = () => {
   return (
-    <div
-      className="absolute inset-0 bg-gradient-to-r from-violet-950 to-blue-900"
-      style={{ zIndex: -1 }}
-    >
+    <div className="absolute inset-0" style={{ zIndex: -1 }}>
       <div
         className="absolute inset-0 flex flex-col items-center justify-center h-screen bg-cover bg-no-repeat"
-        style={{ backgroundImage: 'url("/bg.png")' }}
+        style={{ backgroundImage: 'url("/2862666.jpg")' }}
       >
         <div className="text-5xl text-white font-bold mb-4">
           A Humandized Name By Wallet
@@ -31,7 +29,7 @@ const HomeScreen = () => {
           </Link>
         </div>
 
-        <div className="absolute top-full left-0 w-full py-10 bg-gradient-to-r from-violet-950 to-blue-900">
+        <div className="absolute top-full left-0 w-full py-10">
           <div className="text-4xl font-bold mt-20 max-w-5xl mx-auto">
             <div className="text-center text-white">
               Easy transfer using{" "}
@@ -56,6 +54,7 @@ const HomeScreen = () => {
           />
 
           <Footer />
+          <UserPage />
         </div>
       </div>
     </div>
