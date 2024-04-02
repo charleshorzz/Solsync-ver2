@@ -4,6 +4,7 @@ import InfoCard from "../Components/infoCard";
 import Footer from "../Components/footer";
 import UserPage from "../Components/userPage";
 import RegisterPage from "../Components/registerPage";
+import AuthenticatePage from "../Components/AuthenticatePage";
 
 const handleSearch = (searchTerm) => {
   console.log("Searching for:", searchTerm);
@@ -68,6 +69,7 @@ const HomeScreen = () => {
           <Footer />
           <UserPage />
           <RegisterPage />
+          <AuthenticatePage />
         </div>
       </div>
     </div>
