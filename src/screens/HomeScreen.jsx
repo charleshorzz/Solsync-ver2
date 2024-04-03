@@ -3,11 +3,30 @@ import SearchBar from "../Components/searchBar";
 import InfoCard from "../Components/infoCard";
 import Footer from "../Components/footer";
 import UserPage from "../Components/userPage";
+import RegisterPage from "../Components/registerPage";
+import AuthenticatePage from "../Components/AuthenticatePage";
 
 const handleSearch = (searchTerm) => {
   console.log("Searching for:", searchTerm);
 };
 
+const infoCard = [
+  {
+    title: "Title 1",
+    description: "Description 1",
+    imageUrl: "https://via.placeholder.com/300",
+  },
+  {
+    title: "Title 2",
+    description: "Description 2",
+    imageUrl: "https://via.placeholder.com/300",
+  },
+  {
+    title: "Title 3",
+    description: "Description 3",
+    imageUrl: "https://via.placeholder.com/300",
+  },
+];
 const HomeScreen = () => {
   return (
     <div className="absolute inset-0" style={{ zIndex: -1 }}>
@@ -37,24 +56,20 @@ const HomeScreen = () => {
               blockchain transfer with long wallet address
             </div>
           </div>
-          <InfoCard
-            title="Title"
-            description="Description"
-            imageUrl="https://via.placeholder.com/300"
-          />
-          <InfoCard
-            title="Title"
-            description="Description"
-            imageUrl="https://via.placeholder.com/300"
-          />
-          <InfoCard
-            title="Title"
-            description="Description"
-            imageUrl="https://via.placeholder.com/300"
-          />
-
+          <div>
+            {infoCard.map((card, index) => (
+              <InfoCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                imageUrl={card.imageUrl}
+              />
+            ))}
+          </div>
           <Footer />
           <UserPage />
+          <RegisterPage />
+          <AuthenticatePage />
         </div>
       </div>
     </div>

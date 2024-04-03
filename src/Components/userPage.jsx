@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { GoCopy } from "react-icons/go";
 import { TbLocationShare } from "react-icons/tb";
@@ -13,22 +12,15 @@ function UserPage() {
     return `${address.slice(0, firstChars)}...${address.slice(-lastChars)}`;
   };
 
-  const walletAddress = "0x9a0ca35ecEc5C2811E93E1E047beD12F73F59231";
+  const walletAddress = "kcK7Zet1Jq8oeozAJsb3S8t2t1odNaSJnmFtsc17e4P";
 
   const [copied, setCopied] = useState(false);
-
-  const fetchData = () => {
-    axios
-      .get("https://public-api.solscan.io/")
-      .then((res) => console.log(res.data))
-      .catch((e) => console.log(e));
-  };
 
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="flex flex-col items-end">
         <div className="mr-4 mb-3 text-lg text-blue-700 flex items-center">
-          <button onClick={fetchData}>Solscan</button>
+          <a href={`https://solscan.io/account/${walletAddress}`}>Solscan</a>
           <TbLocationShare className="ml-1" />
           <button className="ml-6">TipLink</button>
           <TbLocationShare className="ml-1" />
