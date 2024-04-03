@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import SearchBar from "../Components/searchBar";
 import InfoCard from "../Components/infoCard";
 import Footer from "../Components/footer";
-import UserPage from "../Components/userPage";
 
 const handleSearch = (searchTerm) => {
   console.log("Searching for:", searchTerm);
@@ -54,7 +53,6 @@ const HomeScreen = () => {
           />
 
           <Footer />
-          <UserPage />
         </div>
       </div>
     </div>

@@ -9,12 +9,14 @@ import {
 import App from "./App";
 import "./index.css";
 import HomeScreen from "./screens/HomeScreen.jsx";
+import UserScreen from "./screens/UserScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="" element={<App />}>
         <Route path="/" index={true} element={<HomeScreen />} />
+        <Route path="/user/:id" element={<UserScreen />} />
       </Route>
     </Route>
   )

@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { GoCopy } from "react-icons/go";
 import { TbLocationShare } from "react-icons/tb";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdOutlineDone } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function UserPage() {
   const shortenAddress = (address, firstChars = 6, lastChars = 4) => {
@@ -17,18 +17,13 @@ function UserPage() {
 
   const [copied, setCopied] = useState(false);
 
-  const fetchData = () => {
-    axios
-      .get("https://public-api.solscan.io/")
-      .then((res) => console.log(res.data))
-      .catch((e) => console.log(e));
-  };
-
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="flex flex-col items-end">
         <div className="mr-4 mb-3 text-lg text-blue-700 flex items-center">
-          <button onClick={fetchData}>Solscan</button>
+          <a href="https://solscan.io/account/7EF3S6iff1GYh8ccTcgNTcP75Gyk7Wpn8Jo3ByH1ABPg">
+            Solscan
+          </a>
           <TbLocationShare className="ml-1" />
           <button className="ml-6">TipLink</button>
           <TbLocationShare className="ml-1" />

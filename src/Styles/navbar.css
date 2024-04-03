@@ -6,10 +6,10 @@
 }
 
 :root {
-  --mainColor: white;
-  --mainColorLight: #5767aa;
+  --mainColor: #301934;
+  --mainColorLight: #5757aa;
   --secondaryColor: #ffb2d7;
-  --textColor: black;
+  --textColor: white;
 }
 
 header {
@@ -20,13 +20,12 @@ header {
   padding: 0 2rem;
   background-color: var(--mainColor);
   color: var(--textColor);
-  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.1);
 }
 
 nav {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: c;
+  justify-content: space-between;
   flex-direction: row;
 }
 

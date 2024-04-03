@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../Styles/navbar.css";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { Link } from "react-router-dom";
+require("@solana/wallet-adapter-react-ui/styles.css");
 
 const Navbar = () => {
   const navRef = useRef();
@@ -11,12 +14,11 @@ const Navbar = () => {
 
   return (
     <header>
-      <h3>Logo</h3>
+      <Link to="/">
+        <h3>Solsync</h3>
+      </Link>
       <nav ref={navRef}>
-        <a href="/">Home</a>
-        <a href="/#">Course</a>
-        <a href="/#">Forum</a>
-        <a href="/#">Dashboard</a>
+        <WalletMultiButton />
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>
