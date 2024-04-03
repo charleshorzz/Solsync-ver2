@@ -3,6 +3,7 @@ import { GoCopy } from "react-icons/go";
 import { TbLocationShare } from "react-icons/tb";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdOutlineDone } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function UserPage() {
   const shortenAddress = (address, firstChars = 6, lastChars = 4) => {

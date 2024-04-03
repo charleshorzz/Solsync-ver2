@@ -67,9 +67,6 @@ const HomeScreen = () => {
             ))}
           </div>
           <Footer />
-          <UserPage />
-          <RegisterPage />
-          <AuthenticatePage />
         </div>
       </div>
     </div>
