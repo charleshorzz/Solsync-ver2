@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import SearchBar from "../Components/searchBar";
 import InfoCard from "../Components/infoCard";
 import Footer from "../Components/footer";
-import UserPage from "../Components/userPage";
-import RegisterPage from "../Components/registerPage";
-import AuthenticatePage from "../Components/AuthenticatePage";
 
 const handleSearch = (searchTerm) => {
   console.log("Searching for:", searchTerm);
@@ -41,7 +38,7 @@ const HomeScreen = () => {
         <div className="mt-6 text-center text-white">
           Get Your Unique Name.
           <Link
-            to="#"
+            to="/register"
             className="underline text-blue-500 hover:text-blue-700 ml-3"
           >
             Register

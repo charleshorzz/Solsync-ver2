@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+
 module.exports = function override(config) {
   const fallback = config.resolve.fallback || {};
   Object.assign(fallback, {
@@ -11,6 +12,7 @@ module.exports = function override(config) {
     url: require.resolve("url"),
     zlib: require.resolve("browserify-zlib"),
     vm: require.resolve("vm-browserify"),
+    process: require.resolve("process/browser"),
   });
   config.resolve.fallback = fallback;
   config.plugins = (config.plugins || []).concat([
@@ -19,5 +21,11 @@ module.exports = function override(config) {
       Buffer: ["buffer", "Buffer"],
     }),
   ]);
+  config.module.rules.unshift({
+    test: /\.m?js$/,
+    resolve: {
+      fullySpecified: false, // disable the behavior
+    },
+  });
   return config;
 };
