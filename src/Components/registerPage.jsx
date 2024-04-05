@@ -5,6 +5,8 @@ import { Audio } from "react-loader-spinner";
 import { toast } from "react-toastify";
 
 const RegisterPage = () => {
+  const isSmallScreen = window.innerWidth <= 640;
+
   const [name, setName] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
   const qrCode = "random qr";
@@ -29,50 +31,37 @@ const RegisterPage = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <form className="rectangle shadow-2xl relative" onSubmit={submitHandler}>
-        <div className="text-3xl font-bold mt-8 ml-5">Register Ngoh.sol</div>
-        <label className="mt-20 text-2xl text-center">
-          Enter your username
-        </label>
-        <div className="mt-10 w-3/4 mx-auto relative">
-          <input
-            className="bg-gray-200 shadow-xl rounded-lg w-full h-10 text-center"
-            placeholder="Your username"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <label className="mt-20 text-2xl text-center">
-          Enter your wallet address
-        </label>
-        <div className="mt-10 w-3/4 mx-auto relative">
-          <input
-            className="bg-gray-200 shadow-xl rounded-lg w-full h-10 text-center"
-            placeholder="Your wallet address"
-            type="text"
-            value={walletAddress}
-            onChange={(e) => setWalletAddress(e.target.value)}
-          />
-        </div>
-        <div className="mt-10 flex justify-center text-red-500 underline">
-          <button type="submit">Register Now</button>
-        </div>
-        {isLoading && (
-          <Audio
-            height="80"
-            width="80"
-            radius="9"
-            color="green"
-            ariaLabel="three-dots-loading"
-            wrapperStyle
-            wrapperClass
-          />
-        )}
-        <div className="absolute bottom-4 w-full text-center">
-          <div className="text-black-300">
-            Note: One-time transaction for registration
+        {isSmallScreen ? (
+          <div className="smScreenRec bg-white shadow-2xl flex flex-col justify-center items-center relative">
+            <div className="text-2xl font-bold mb-10">Register Ngoh.sol</div>
+            <div className="bg-gray-200 shadow-xl rounded-lg w-3/4 h-10 flex justify-center items-center mb-10">
+              Transaction Fee&nbsp;<span className="text-red-500">0.01</span>
+              &nbsp;sol
+            </div>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-12">
+              Register
+            </button>
+            <div className="absolute bottom-4 text-black-300 text-center">
+              Note: One-time transaction for registration
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="rectangle bg-white shadow-2xl flex flex-col justify-center items-center relative">
+            <div className="text-3xl font-bold mb-10">Register Ngoh.sol</div>
+            <div className="bg-gray-200 shadow-xl rounded-lg w-3/4 h-10 flex justify-center items-center mb-10">
+              <div className="font-bold">
+                Transaction Fee&nbsp;<span className="text-red-500">0.01</span>
+                &nbsp;sol
+              </div>
+            </div>
+            <button className="bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-lg mt-12">
+              Register
+            </button>
+            <div className="absolute bottom-4 text-black-300">
+              Note: One-time transaction for registration
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );
