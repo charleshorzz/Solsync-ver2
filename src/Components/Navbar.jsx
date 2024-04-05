@@ -13,9 +13,9 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header className="relative z-20">
       <Link to="/">
-        <h3>Solsync</h3>
+        <h2 className="font-bold">Solsync</h2>
       </Link>
       <nav ref={navRef}>
         <WalletMultiButton />
@@ -23,6 +23,7 @@ const Navbar = () => {
           <FaTimes />
         </button>
       </nav>
+      <div className="bg-gray-200 w-10 h-10 flex items-end"></div>
       <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>
