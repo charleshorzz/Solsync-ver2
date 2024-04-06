@@ -1,5 +1,5 @@
 import React from "react";
-import useSmallScreen from "../hooks/reizeScreen";
+import useSmallScreen from "../hooks/resizeScreen";
 
 const InfoCard = ({ title, description, imageUrl }) => {
   const isSmallScreen = useSmallScreen();
