@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { Audio } from "react-loader-spinner";
 import { toast } from "react-toastify";
+import useSmallScreen from "../hooks/reizeScreen";
 
 const RegisterPage = () => {
-  const isSmallScreen = window.innerWidth <= 640;
+  const isSmallScreen = useSmallScreen();
 
   const [name, setName] = useState("");
   const [walletAddress, setWalletAddress] = useState("");

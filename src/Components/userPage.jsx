@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GoCopy } from "react-icons/go";
 import { TbLocationShare } from "react-icons/tb";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdOutlineDone } from "react-icons/md";
+import useSmallScreen from "../hooks/reizeScreen";
 
 function UserPage() {
   const shortenAddress = (address, firstChars = 6, lastChars = 4) => {
@@ -16,7 +17,7 @@ function UserPage() {
 
   const [copied, setCopied] = useState(false);
 
-  const isSmallScreen = window.innerWidth <= 640;
+  const isSmallScreen = useSmallScreen();
 
   return (
     <div className="flex justify-center items-center h-screen">
