@@ -78,7 +78,7 @@ function UserPage() {
                 className="rounded-full h-full w-full mt-12 z-10"
               />
             </div>
-            <div className="font-bold text-2xl mt-11 ml-9 pl-6">{name}</div>
+            <div className="font-bold text-2xl mt-11 ml-9 pl-4">{name}</div>
             <hr className="border-t border-gray-300 w-full mx-auto mt-8" />
             <div className="smRectangle mt-10 ml-8">
               <div className="font-bold text-lg">Wallet Address</div>
