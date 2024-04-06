@@ -8,7 +8,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 // Directory for QR code images
-const qrCodeDirectory = './qr-codes'
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const qrCodeDirectory = path.join(__dirname, 'qr-codes');
+const port = 5000; // Make sure to match this with your server's port
 
 
 // Corrected and simplified version of readEncryptionConfig with async readFile
@@ -44,69 +47,120 @@ async function doubleEncrypt(data) {
     return encrypted2;
 }
 
-export async function generateQR(walletAddress,   qrCodeDirectory) {
-  const encryptedAddress = await doubleEncrypt(walletAddress);
-    const base64FileName = `${Buffer.from(encryptedAddress).toString('base64')}.png`;
-    const filePath = path.join(qrCodeDirectory, base64FileName);
-  try {
-    if (fsSync.existsSync(filePath)) {
-      console.log(`QR code already exists for this address.`);
-      return;
-    }
+// export async function generateQR(walletAddress,   qrCodeDirectory) {
+//   const encryptedAddress = await doubleEncrypt(walletAddress);
+//     const base64FileName = `${Buffer.from(encryptedAddress).toString('base64')}.png`;
+//     const filePath = path.join(qrCodeDirectory, base64FileName);
+//   try {
+//     if (fsSync.existsSync(filePath)) {
+//       console.log(`QR code already exists for this address.`);
+//       return;
+//     }
 
-    // Generate the QR code to a data URL we can use to create a buffer
-    QRCode.toDataURL(encryptedAddress, {
-      errorCorrectionLevel: 'H',
-      margin: 1,
-      color: { dark: "#000000", light: "#0000" } // light set to transparent
-    }, function (err, url) {
-      if (err) throw err;
+//     // Generate the QR code to a data URL we can use to create a buffer
+//     QRCode.toDataURL(encryptedAddress, {
+//       errorCorrectionLevel: 'H',
+//       margin: 1,
+//       color: { dark: "#000000", light: "#0000" } // light set to transparent
+//     }, function (err, url) {
+//       if (err) throw err;
   
-      const qrImageBuffer = Buffer.from(url.split(',')[1], 'base64');
+//       const qrImageBuffer = Buffer.from(url.split(',')[1], 'base64');
       
-      sharp(qrImageBuffer)
-        .metadata()
-        .then(metadata => {
-          const logoSize = Math.round(metadata.width / 5);
-          const logoPosition = Math.round((metadata.width - logoSize) / 2);
+//       sharp(qrImageBuffer)
+//         .metadata()
+//         .then(metadata => {
+//           const logoSize = Math.round(metadata.width / 5);
+//           const logoPosition = Math.round((metadata.width - logoSize) / 2);
   
-          // This creates a canvas that is the same size as the QR code with a transparent square in the middle
-          sharp({
-            create: {
+//           // This creates a canvas that is the same size as the QR code with a transparent square in the middle
+//           sharp({
+//             create: {
+//               width: metadata.width,
+//               height: metadata.height,
+//               channels: 4,
+//               background: { r: 0, g: 0, b: 0, alpha: 0 }
+//             }
+//           })
+//           .composite([{
+//             input: qrImageBuffer,
+//             blend: 'over'
+//           }, {
+//             // Create a transparent square where the logo would normally go
+//             input: Buffer.from(`<svg width="${logoSize}" height="${logoSize}">
+//               <rect x="0" y="0" width="${logoSize}" height="${logoSize}" fill="#FFF" fill-opacity="0" />
+//             </svg>`),
+//             top: logoPosition,
+//             left: logoPosition,
+//             blend: 'over'
+//           }])
+//           .toFile(filePath)
+//           .then(() => {
+//             console.log(`QR code with transparent space saved to: ${filePath}`);
+//             // Instead of just returning the filePath, construct a URL
+//             return `http://localhost:${port}/qr-codes/${encodeURIComponent(base64FileName)}`;
+
+//           })
+//           .catch(err => {
+//             console.error('Error creating QR code with transparent space:', err);
+//           });
+//         });
+//     });
+//   } catch (error) {
+//     console.error('Error generating QR code:', error);
+//   } 
+    
+//   }
+
+export async function generateQR(walletAddress) {
+  const encryptedAddress = await doubleEncrypt(walletAddress);
+  const base64FileName = `${Buffer.from(encryptedAddress).toString('base64')}.png`;
+  const filePath = path.join(qrCodeDirectory, base64FileName);
+
+  if (fsSync.existsSync(filePath)) {
+      console.log(`QR code already exists for this address.`);
+      return `http://localhost:${port}/qr-codes/${encodeURIComponent(base64FileName)}`;
+  }
+
+  try {
+      const qrCodeDataUrl = await QRCode.toDataURL(encryptedAddress, {
+          errorCorrectionLevel: 'H',
+          margin: 1,
+          color: { dark: "#000000", light: "#0000" } // assuming light: "#0000" is intentional for transparency
+      });
+
+      const qrImageBuffer = Buffer.from(qrCodeDataUrl.split(',')[1], 'base64');
+
+      const metadata = await sharp(qrImageBuffer).metadata();
+      const logoSize = Math.round(metadata.width / 5);
+      const logoPosition = Math.round((metadata.width - logoSize) / 2);
+
+      await sharp({
+          create: {
               width: metadata.width,
               height: metadata.height,
               channels: 4,
               background: { r: 0, g: 0, b: 0, alpha: 0 }
-            }
-          })
-          .composite([{
-            input: qrImageBuffer,
-            blend: 'over'
-          }, {
-            // Create a transparent square where the logo would normally go
-            input: Buffer.from(`<svg width="${logoSize}" height="${logoSize}">
-              <rect x="0" y="0" width="${logoSize}" height="${logoSize}" fill="#FFF" fill-opacity="0" />
-            </svg>`),
-            top: logoPosition,
-            left: logoPosition,
-            blend: 'over'
-          }])
-          .toFile(filePath)
-          .then(() => {
-            console.log(`QR code with transparent space saved to: ${filePath}`);
-          })
-          .catch(err => {
-            console.error('Error creating QR code with transparent space:', err);
-          });
-        });
-    });
+          }
+      })
+      .composite([{
+          input: qrImageBuffer,
+          blend: 'over'
+      }, {
+          input: Buffer.from(`<svg width="${logoSize}" height="${logoSize}">
+            <rect x="0" y="0" width="${logoSize}" height="${logoSize}" fill="#FFF" fill-opacity="0" />
+          </svg>`),
+          top: logoPosition,
+          left: logoPosition,
+          blend: 'over'
+      }])
+      .toFile(filePath);
+
+      console.log(`QR code with transparent space saved to: ${filePath}`);
+      return `http://localhost:${port}/qr-codes/${encodeURIComponent(base64FileName)}`;
   } catch (error) {
-    console.error('Error generating QR code:', error);
-  } 
-    
+      console.error('Error generating QR code:', error);
+      throw error;
   }
+}
 
-  const walletAddress = '7EF3S6iff1GYh8ccTcgNTcP75Gyk7Wpn8Jo3ByH1ABPg';
-
-
-generateQR(walletAddress, qrCodeDirectory);
