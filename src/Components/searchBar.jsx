@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import usersData from "../backend/data/users.mjs";
+import { Link } from "react-router-dom";
 
 function SearchBar({ onSearch }) {
   const navigate = useNavigate();
@@ -59,18 +60,22 @@ function SearchBar({ onSearch }) {
           {searchResults.map((user) => (
             <div
               key={user.name}
-              className="py-2 px-4 border-gray-300 flex justify-between items-center"
+              className="py-2 px-4 border-gray-300 flex justify-between items-center hover:bg-[#e0e0e0] cursor-pointer"
             >
               <p>{user.name}</p>
               {isRegistered && (
-                <span className="text-red-500 ml-2">Registered</span>
+                <Link to={{ pathname: `/user/${user.name}` }}>
+                  <span className="text-red-500 ml-2">Registered</span>
+                </Link>
               )}
             </div>
           ))}
           {!isRegistered && searchData && (
-            <div className="py-2 px-4 border-gray-300 flex justify-between items-center">
+            <div className="py-2 px-4 border-gray-300 flex justify-between items-center hover:bg-[#e0e0e0] cursor-pointer">
               <p>{searchData}</p>
-              <span className="text-green-500 ml-2">Available</span>
+              <Link to={`/register/${searchData}`}>
+                <span className="text-green-500 ml-2">Available</span>
+              </Link>
             </div>
           )}
         </div>

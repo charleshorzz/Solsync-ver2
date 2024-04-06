@@ -13,14 +13,15 @@ import HomeScreen from "./screens/HomeScreen.jsx";
 import UserScreen from "./screens/UserScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
 import store from "./store.js";
+import UserPage from "./Components/userPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="" element={<App />}>
         <Route path="/" index={true} element={<HomeScreen />} />
-        <Route path="/user/:name" element={<UserScreen />} />
-        <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/user/:name" element={<UserPage />} />
+        <Route path="/register/:name" element={<RegisterScreen />} />
       </Route>
     </Route>
   )
