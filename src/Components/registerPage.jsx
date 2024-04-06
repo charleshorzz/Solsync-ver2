@@ -30,7 +30,7 @@ const RegisterPage = () => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="rectangle shadow-2xl relative" onSubmit={submitHandler}>
+      <form className="shadow-2xl relative" onSubmit={submitHandler}>
         {isSmallScreen ? (
           <div className="smScreenRec bg-white shadow-2xl flex flex-col justify-center items-center relative">
             <div className="text-2xl font-bold mb-10">Register Ngoh.sol</div>
