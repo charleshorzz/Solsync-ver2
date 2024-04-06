@@ -4,16 +4,20 @@ import { TbLocationShare } from "react-icons/tb";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdOutlineDone } from "react-icons/md";
 import useSmallScreen from "../hooks/resizeScreen";
+import { useParams } from "react-router-dom";
+import users from "../backend/data/users.mjs";
 
 function UserPage() {
+  const { name: username } = useParams();
+  const result = users.find((user) => user.name === username);
+  const { name, walletAddress } = result;
+
   const shortenAddress = (address, firstChars = 6, lastChars = 4) => {
     if (address.length <= firstChars + lastChars) {
       return address;
     }
     return `${address.slice(0, firstChars)}...${address.slice(-lastChars)}`;
   };
-
-  const walletAddress = "kcK7Zet1Jq8oeozAJsb3S8t2t1odNaSJnmFtsc17e4P";
 
   const [copied, setCopied] = useState(false);
 
@@ -30,7 +34,7 @@ function UserPage() {
               className="rounded-full h-full w-full mt-12 z-10 justify-center items-center"
             />
           </div>
-          <div className="font-bold text-2xl text-center mt-10">Ngoh.sol</div>
+          <div className="font-bold text-2xl text-center mt-10">{username}</div>
           <hr className="border-t border-gray-300 w-full mx-auto mt-12" />
           <div className="smRectangle mt-12 ml-12">
             <div className="font-bold text-lg text-center">Wallet Address</div>
@@ -74,7 +78,7 @@ function UserPage() {
                 className="rounded-full h-full w-full mt-12 z-10"
               />
             </div>
-            <div className="font-bold text-2xl mt-8 ml-9">Ngoh.sol</div>
+            <div className="font-bold text-2xl mt-11 ml-9 pl-6">{name}</div>
             <hr className="border-t border-gray-300 w-full mx-auto mt-8" />
             <div className="smRectangle mt-10 ml-8">
               <div className="font-bold text-lg">Wallet Address</div>

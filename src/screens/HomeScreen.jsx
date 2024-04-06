@@ -35,7 +35,7 @@ const HomeScreen = () => {
         }}
       >
         <div className="text-5xl text-white font-bold mb-4 max-sm:text-2xl">
-          A Humandized Name By Wallet
+          Humandized Name of Wallet Address In Solana
         </div>
         <SearchBar onSearch={handleSearch}></SearchBar>
 

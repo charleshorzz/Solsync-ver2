@@ -44,7 +44,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "server": "nodemon backend/server.mjs",
+    "server": "nodemon src/backend/server.mjs",
     "start": "react-app-rewired start",
     "dev": "concurrently \"npm run server\" \"npm start\" ",
     "data:import": "node backend/seeder.mjs",
