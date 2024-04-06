@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import QRCode from "qrcode.react"; // Import QRCode library
 import "../Styles/navbar.css";
