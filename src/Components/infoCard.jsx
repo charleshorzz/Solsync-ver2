@@ -1,7 +1,8 @@
 import React from "react";
+import useSmallScreen from "../hooks/reizeScreen";
 
 const InfoCard = ({ title, description, imageUrl }) => {
-  const isSmallScreen = window.innerWidth <= 640;
+  const isSmallScreen = useSmallScreen();
 
   return (
     <div className="rounded shadow-lg mt-10 ml-10 mr-10 bg-white">
