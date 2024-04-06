@@ -2,10 +2,6 @@ import SearchBar from "../Components/searchBar";
 import InfoCard from "../Components/infoCard";
 import Footer from "../Components/footer";
 
-const handleSearch = (searchTerm) => {
-  console.log("Searching for:", searchTerm);
-};
-
 const infoCard = [
   {
     title: "Ease of Use",
@@ -34,11 +30,10 @@ const HomeScreen = () => {
           backgroundImage: 'url("/2862666.jpg")',
         }}
       >
-        <div className="text-5xl text-white font-bold mb-4 max-sm:text-2xl">
-          Humandized Name of Wallet Address In Solana
+        <div className="text-5xl text-white font-bold mb-4 max-sm:text-3xl">
+          Solana Humandized Wallet
         </div>
-        <SearchBar onSearch={handleSearch}></SearchBar>
-
+        <SearchBar />
         <div className="absolute top-full left-0 w-full py-10 bg-gradient-to-r from-violet-900 to-blue-600">
           <div className="text-4xl font-bold mt-20 max-w-5xl mx-auto">
             <div className="text-center text-white max-sm:text-xl">

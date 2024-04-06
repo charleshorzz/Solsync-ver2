@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import usersData from "../backend/data/users.mjs";
-import { Link } from "react-router-dom";
 
 function SearchBar({ onSearch }) {
   const navigate = useNavigate();
@@ -31,15 +30,14 @@ function SearchBar({ onSearch }) {
     event.preventDefault();
     if (isRegistered) {
       navigate(`/user/${searchData}`);
+    } else {
+      navigate(`/register/${searchData}`);
     }
   };
 
   return (
     <div className="relative">
-      <form
-        className="mt-5 flex items-center w-full max-w-md"
-        onSubmit={handleSubmit}
-      >
+      <form className="mt-5 flex items-center w-full ">
         <input
           type="text"
           placeholder="Search User"
@@ -47,35 +45,31 @@ function SearchBar({ onSearch }) {
           onChange={handleChange}
           className="border border-gray-400 rounded-md py-2 px-4 w-full"
         />
-        <button
-          type="submit"
-          onClick={handleSubmit}
-          className="text-white py-2 px-4"
-        >
+        <button type="submit" className="text-white py-2 px-4">
           <FaSearch />
         </button>
       </form>
-      <div className="absolute top-full left-0 w-full max-w-md mt-2">
+      <div className="absolute top-full left-0 w-full mt-2">
         <div className="bg-white rounded-md">
           {searchResults.map((user) => (
             <div
               key={user.name}
               className="py-2 px-4 border-gray-300 flex justify-between items-center hover:bg-[#e0e0e0] cursor-pointer"
+              onClick={handleSubmit}
             >
               <p>{user.name}</p>
               {isRegistered && (
-                <Link to={{ pathname: `/user/${user.name}` }}>
-                  <span className="text-red-500 ml-2">Registered</span>
-                </Link>
+                <span className="text-red-500 ml-2">Registered</span>
               )}
             </div>
           ))}
           {!isRegistered && searchData && (
-            <div className="py-2 px-4 border-gray-300 flex justify-between items-center hover:bg-[#e0e0e0] cursor-pointer">
+            <div
+              className="py-2 px-4 border-gray-300 flex justify-between items-center hover:bg-[#e0e0e0] cursor-pointer"
+              onClick={handleSubmit}
+            >
               <p>{searchData}</p>
-              <Link to={`/register/${searchData}`}>
-                <span className="text-green-500 ml-2">Available</span>
-              </Link>
+              <span className="text-green-500 ml-2">Available</span>
             </div>
           )}
         </div>
