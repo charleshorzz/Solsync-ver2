@@ -13,6 +13,7 @@ import HomeScreen from "./screens/HomeScreen.jsx";
 import UserScreen from "./screens/UserScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
 import store from "./store.js";
+import QrRender from "./Components/QrRender.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,8 @@ const router = createBrowserRouter(
         <Route path="/" index={true} element={<HomeScreen />} />
         <Route path="/user/:name" element={<UserScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
+        <Route path="/qr" element={<QrRender />} />
+        
       </Route>
     </Route>
   )
