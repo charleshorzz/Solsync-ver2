@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { Audio } from "react-loader-spinner";
 import { toast } from "react-toastify";
-import useSmallScreen from "../hooks/reizeScreen";
+import useSmallScreen from "../hooks/resizeScreen";
 
 const RegisterPage = () => {
   const isSmallScreen = useSmallScreen();

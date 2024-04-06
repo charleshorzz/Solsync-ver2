@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { GoCopy } from "react-icons/go";
 import { TbLocationShare } from "react-icons/tb";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdOutlineDone } from "react-icons/md";
-import useSmallScreen from "../hooks/reizeScreen";
+import useSmallScreen from "../hooks/resizeScreen";
 
 function UserPage() {
   const shortenAddress = (address, firstChars = 6, lastChars = 4) => {

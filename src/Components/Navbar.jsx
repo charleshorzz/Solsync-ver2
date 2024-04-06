@@ -4,7 +4,7 @@ import QRCode from "qrcode.react";
 import "../Styles/navbar.css";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { Link } from "react-router-dom";
-import useSmallScreen from "../hooks/reizeScreen";
+import useSmallScreen from "../hooks/resizeScreen";
 require("@solana/wallet-adapter-react-ui/styles.css");
 
 const Navbar = () => {
@@ -25,6 +25,9 @@ const Navbar = () => {
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
+    if (showQRCode) {
+      setShowQRCode(false);
+    }
   };
 
   return (
